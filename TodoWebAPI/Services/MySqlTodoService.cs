@@ -15,7 +15,7 @@ namespace TodoWebAPI.Services
             return todo;
         }
 
-        public async Task<bool> DeleteTodoAsync(int id)
+        public async Task<bool> DeleteTodoAsync(Guid id)
         {
             var todo = await _context.Todos.FindAsync(id);
             if (todo != null)

@@ -7,7 +7,7 @@ namespace TodoWebAPI.Services
         Task<List<Todo>> GetTodosAsync(string search = "");
         Task<Todo> AddTodoAsync(Todo todo);
         Task<Todo> UpdateTodoAsync(Todo todo);
-        Task<bool> DeleteTodoAsync(int id);
+        Task<bool> DeleteTodoAsync(Guid id);
 
     }
 }

@@ -111,7 +111,7 @@ export default {
         
         async deleteTodo(id) {
             try {
-                await axios.delete(`https://localhost:8081/api/todos/${id}?provider=MySql`);
+                await axios.delete(`https://localhost:8081/api/todos/${id}?provider=${this.selectedProvider}`);
                 this.todos = this.todos.filter(todo => todo.id != id);
             } catch (error) {
                 console.error('Error Deleting todo:', error);
@@ -121,7 +121,7 @@ export default {
         async toggleComplete(todo) {
             try {
                 const updateTodo = { ...todo, isCompleted: !todo.isCompleted };
-                await axios.put(`https://localhost:8081/api/todos?provider=MySql`, updateTodo);
+                await axios.put(`https://localhost:8081/api/todos?provider=${this.selectedProvider}`, updateTodo);
                 this.todos = this.todos.map(t => (t.id === todo.id ? updateTodo : t));
             } catch (error) {
                 console.error('Error updating todo:', error);
@@ -269,7 +269,7 @@ html, body {
 .sticky-notes-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 0;  /* Remove the gap between sticky notes */
   justify-content: flex-start;
   align-items: flex-start;
   width: 100%;

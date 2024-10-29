@@ -1,11 +1,20 @@
 <template>
-    <div class="sticky-note" :class="{ completed: todo.IsCompleted }">
-        <h3>{{ todo.title }}</h3>
-        <button class="mark-complete" @click="toggleComplete">
-            {{ todo.isCompleted ? 'Undo'  : 'Complete' }}
-        </button>
-        <button class="delete" @click="$emit('delete-todo', todo.id)">❌</button>
-    </div>
+   <div
+    class="sticky-note"
+    :class="{ completed: todo.isCompleted }"
+  >
+    <!-- Complete Icon -->
+    <button class="complete-icon" @click="toggleComplete">
+      <i class="fas fa-check"></i>
+    </button>
+
+    <h3>{{ todo.title }}</h3>
+
+    <!-- Delete Icon -->
+    <button class="delete-icon" @click="$emit('delete-todo', todo.id)">
+      <i class="fas fa-trash"></i>
+    </button>
+  </div>
 </template>
 
 <script>
@@ -61,9 +70,35 @@ button {
     color: #059669;
 }
 
-.delete {
-    color: red;
-    align-self: flex-end;
+.complete-icon,
+.delete-icon {
+  position: absolute;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.complete-icon {
+  top: 5px;
+  left: 5px;  /* Position at the top-left corner */
+  color: #059669;  /* Green for incomplete */
+  transition: color 0.3s;
+}
+
+.delete-icon {
+  top: 5px;
+  right: 5px;  /* Position at the top-right corner */
+  color: red;
+}
+
+.sticky-note.completed {
+  background-color: #4caf50;  /* Green when completed */
+  border-color: #388e3c;
+}
+
+.sticky-note.completed .complete-icon {
+  color: white;  /* White icon for completed */
 }
 
 </style>

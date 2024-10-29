@@ -45,7 +45,7 @@ namespace TodoWebAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteTodo([FromQuery] string provider, int id)
+        public async Task<IActionResult> DeleteTodo([FromQuery] string provider, Guid id)
         {
             var success = await GetProvider(provider).DeleteTodoAsync(id);
             return Ok(success);
