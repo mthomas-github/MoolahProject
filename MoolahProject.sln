@@ -5,7 +5,7 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoWebAPI", "TodoWebAPI\TodoWebAPI.csproj", "{9F31A4EA-AA68-4E21-AB44-14B9AA2BF40A}"
 EndProject
-Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "todovueapp", "TodoVueApp\todovueapp.esproj", "{EDD2725C-4508-420F-9FEF-145E5C839BA3}"
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{B5816A4E-3AC4-45BE-9CB4-AA660C16F2EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +17,10 @@ Global
 		{9F31A4EA-AA68-4E21-AB44-14B9AA2BF40A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F31A4EA-AA68-4E21-AB44-14B9AA2BF40A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F31A4EA-AA68-4E21-AB44-14B9AA2BF40A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EDD2725C-4508-420F-9FEF-145E5C839BA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EDD2725C-4508-420F-9FEF-145E5C839BA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EDD2725C-4508-420F-9FEF-145E5C839BA3}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{EDD2725C-4508-420F-9FEF-145E5C839BA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EDD2725C-4508-420F-9FEF-145E5C839BA3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EDD2725C-4508-420F-9FEF-145E5C839BA3}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B5816A4E-3AC4-45BE-9CB4-AA660C16F2EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5816A4E-3AC4-45BE-9CB4-AA660C16F2EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5816A4E-3AC4-45BE-9CB4-AA660C16F2EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5816A4E-3AC4-45BE-9CB4-AA660C16F2EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
