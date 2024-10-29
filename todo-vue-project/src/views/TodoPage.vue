@@ -3,23 +3,26 @@
     <!-- Top Controls -->
     <div class="top-controls">
      <!-- Enhanced Dropdown for Provider Selection -->
-    <div class="custom-dropdown">
-      <div class="dropdown-selected" @click="toggleDropdown">
-        <span>{{ selectedProvider }}</span>
-        <i :class="isDropdownOpen ? 'arrow-up' : 'arrow-down'"></i>
-      </div>
-      <ul v-if="isDropdownOpen" class="dropdown-list">
-        <li 
-          v-for="provider in providers" 
-          :key="provider.value" 
-          @click="selectProvider(provider.value)"
-          class="dropdown-item"
-        >
-          <i :class="provider.icon"></i>
-          <span>{{ provider.name }}</span>
-        </li>
-      </ul>
+     <div class="provider-wrapper">
+  <label class="provider-label">Select a Provider:</label>
+  <div class="custom-dropdown">
+    <div class="dropdown-selected" @click="toggleDropdown">
+      <span>{{ selectedProvider }}</span>
+      <i :class="isDropdownOpen ? 'arrow-up' : 'arrow-down'"></i>
     </div>
+    <ul v-if="isDropdownOpen" class="dropdown-list">
+      <li 
+        v-for="provider in providers" 
+        :key="provider.value" 
+        @click="selectProvider(provider.value)"
+        class="dropdown-item"
+      >
+        <i :class="provider.icon"></i>
+        <span>{{ provider.name }}</span>
+      </li>
+    </ul>
+  </div>
+</div>
 
       <!-- Search Bar -->
       <div class="search-bar">
@@ -156,11 +159,19 @@ html, body {
 
 .top-controls {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  align-items: start;
   gap: 20px;
   margin-bottom: 20px;
-  width: 100%;
+}
+
+.provider-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.provider-label {
+  font-weight: bold;
 }
 
 .custom-dropdown {
