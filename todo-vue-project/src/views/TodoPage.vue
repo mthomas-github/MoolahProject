@@ -59,6 +59,7 @@ import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import { debounce } from 'lodash';
 
+const baseURL = import.meta.env.VITE_APP_API_URL;
 
 export default {
     components: {
@@ -88,7 +89,7 @@ export default {
     },
         async fetchTodos() {
             try {
-                const response = await axios.get('https://localhost:8081/api/todos', {
+                const response = await axios.get(`${baseURL}/api/todos`, {
                 params: { provider: this.selectedProvider, search: this.searchQuery }
         });
                 this.todos = response.data;
@@ -101,7 +102,7 @@ export default {
             if (this.newTodoTitle.trim() === '') return;
             const newTodo = {id: uuidv4(), title: this.newTodoTitle, isCompleted: false, source: this.selectedProvider};
             try {4
-                const response = await axios.post(`https://localhost:8081/api/todos?provider=${this.selectedProvider}`, newTodo);
+                const response = await axios.post(`${baseURL}/api/todos?provider=${this.selectedProvider}`, newTodo);
                 this.todos.push(response.data);
                 this.newTodoTitle = '';
             } catch (error) {
@@ -111,7 +112,7 @@ export default {
         
         async deleteTodo(id) {
             try {
-                await axios.delete(`https://localhost:8081/api/todos/${id}?provider=${this.selectedProvider}`);
+                await axios.delete(`${baseURL}/api/todos/${id}?provider=${this.selectedProvider}`);
                 this.todos = this.todos.filter(todo => todo.id != id);
             } catch (error) {
                 console.error('Error Deleting todo:', error);
@@ -121,7 +122,7 @@ export default {
         async toggleComplete(todo) {
             try {
                 const updateTodo = { ...todo, isCompleted: !todo.isCompleted };
-                await axios.put(`https://localhost:8081/api/todos?provider=${this.selectedProvider}`, updateTodo);
+                await axios.put(`${baseURL}/api/todos?provider=${this.selectedProvider}`, updateTodo);
                 this.todos = this.todos.map(t => (t.id === todo.id ? updateTodo : t));
             } catch (error) {
                 console.error('Error updating todo:', error);
