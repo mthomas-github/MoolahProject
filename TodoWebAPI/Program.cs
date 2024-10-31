@@ -6,12 +6,12 @@ using TodoWebAPI.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var MSSQL = builder.Configuration.GetConnectionString("DefaultConnection");
-var MySQL = builder.Configuration.GetConnectionString("MySQLConnection");
+var mssql = builder.Configuration.GetConnectionString("DefaultConnection");
+var mySql = builder.Configuration.GetConnectionString("MySQLConnection");
 
 
-builder.Services.AddDbContext<SQLTodoDbContext>(options => options.UseSqlServer(MSSQL));
-builder.Services.AddDbContext<MySQLTodoDbContext>(options => options.UseMySql(MySQL, ServerVersion.AutoDetect(MySQL)));
+builder.Services.AddDbContext<SQLTodoDbContext>(options => options.UseSqlServer(mssql));
+builder.Services.AddDbContext<MySQLTodoDbContext>(options => options.UseMySql(mySql, ServerVersion.AutoDetect(mySql)));
 
 builder.Services.AddScoped<SqlTodoService>();
 builder.Services.AddScoped<MySqlTodoService>();
@@ -26,6 +26,7 @@ builder.Services.AddCors(options => { options.AddDefaultPolicy(builder => { buil
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHealthChecks();
+builder.Services.AddAWSLambdaHosting(LambdaEventSource.HttpApi);
 
 var app = builder.Build();
 
