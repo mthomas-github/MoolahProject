@@ -25,6 +25,7 @@ builder.Services.AddCors(options => { options.AddDefaultPolicy(builder => { buil
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddHealthChecks();
 
 var app = builder.Build();
 
@@ -38,7 +39,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseCors();
-
+app.MapHealthChecks("/healthz");
 app.UseAuthorization();
 
 app.MapControllers();

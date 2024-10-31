@@ -59,7 +59,7 @@ import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import { debounce } from 'lodash';
 
-const baseURL = import.meta.env.VITE_APP_API_URL;
+const baseURL =  import.meta.env.VITE_API_URL;
 
 export default {
     components: {
